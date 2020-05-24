@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bubble</title>
+</head>
+<body>
+        <button id="btn01" value="nihao">w</button>
+<script>
+    window.onload = function () {
+        var btn01 = document.getElementById("btn01");
+//        btn01.onclick = function () {
+//            alert("1")
+//            btn01.addEventListener("click",function () {
+//                alert('2');
+//            },false);
+        bind(btn01,"click",function () {
+            alert("666");
+        })
+    };
+   //obj 要绑定事件对象， eventstr，事件的字符串，callback回调函数
+    function bind(obj,eventstr,callback) {
+        if (obj.addEventListener) {
+            //大部分浏览器
+            obj.addEventListener(eventstr, callback, false);
+        } else {
+            //this是谁，是由调用方式决定的
+            //IE8 under
+            obj.attachEvent("on" + eventstr, function () {
+                //在一个匿名函数中调用回调函数，用call去改变
+                callback.call(obj);
+            });
+             }
+        }
+
+
+</script>
+
+
+
+</body>
+</html>
