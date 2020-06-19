@@ -10,7 +10,7 @@ import Login from './containers/login/login'
 import Main from './containers/main/main'
 
 
-//three first level route , default "main"
+//three first level route  default "main"
 ReactDOM.render((
   <Provider store={store}>
     <HashRouter>
